@@ -19,13 +19,13 @@ class Skeleton {
     image_r = loadImage("../../Assets/skeleton_r.png");
     
     // scale images by monster_scale factor
-    image_m.resize(round(image_m.width*monster_scale),round(image_m.height*monster_scale));
-    image_l.resize(round(image_l.width*monster_scale),round(image_l.height*monster_scale));
-    image_r.resize(round(image_r.width*monster_scale),round(image_r.height*monster_scale));
+    image_m.resize(round(image_m.width*character_scale),round(image_m.height*character_scale));
+    image_l.resize(round(image_l.width*character_scale),round(image_l.height*character_scale));
+    image_r.resize(round(image_r.width*character_scale),round(image_r.height*character_scale));
 
     xpos = xpos_my;
     ypos = ypos_my;
-    xspeed = xspeed_my;
+    xspeed = xspeed_my * gamespeed;
     healthInit = health;
     index = index_my;
   }
@@ -82,7 +82,7 @@ class Skeleton {
   }
   
   void explode() { // Triggers explosion
-    image(explosion, xpos, ypos);
+    image(explosion, xpos-explosion.width/2, ypos-explosion.width/2);
   }
   
   void getHit(float damage) {

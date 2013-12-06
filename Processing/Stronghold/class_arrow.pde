@@ -24,7 +24,7 @@ class Arrow {
     image = loadImage("../../Assets/arrow.png");
     
     // scale images by monster_scale factor
-    image.resize(round(image.width*monster_scale),round(image.height*monster_scale));
+    image.resize(round(image.width*character_scale),round(image.height*character_scale));
     
     origin = origin_my;
     target = target_my;
