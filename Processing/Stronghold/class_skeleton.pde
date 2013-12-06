@@ -86,7 +86,7 @@ class Skeleton {
     image(explosion, xpos, ypos);
   }
   
-  void getHit(float damage) {
+  void getHit(float damage) { 
     health -= damage;
     this.explode();
   }

@@ -9,6 +9,7 @@ PImage stronghold_bg;
 PImage explosion;
 
 Knight knight1, knight2;
+Sync sync1;
 Skeleton[] skeletons;
 ArrayList<Arrow> arrows;
 int arrownumber = 1;
@@ -34,6 +35,7 @@ void setup() {
   
   knight1 = new Knight(width/6, height/8); //changed the co-ordinated based on width and height proportions
   knight2 = new Knight(width/6, height/3); //added new knight
+  sync1   = new Sync(width/5, height/7, 2);
   
   // Create array of skeletons (with random speed)
   skeletons = new Skeleton[skeleton_number];
@@ -52,7 +54,8 @@ void draw() {
   
     knight1.display(); 
     knight2.display();
-       
+    sync1.display();
+    
     for (int i = 0; i < skeletons.length; i++) {
       skeletons[i].display();
       skeletons[i].move();
@@ -71,7 +74,9 @@ void draw() {
     
     if(keyPressed) {
       if (key == 'a' || key == 'A') {
+      if (sync1.peak()){
         knight1.shoot();
+      }
       }
       
       if (key == 'l' || key == 'L') {
