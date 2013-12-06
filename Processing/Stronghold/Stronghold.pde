@@ -37,9 +37,11 @@ void setup() {
   // Create array of skeletons (with random speed)
   skeletons = new Skeleton[skeleton_number];
   for (int i = 0; i < skeletons.length; i++) {
-    skeletons[i] = new Skeleton(width, (i+1)*50+20, random(0.5, 1.5), 10, i);
+    // Create skeletons. Parameters. x position, y position, speed, index
+    skeletons[i] = new Skeleton(width, (i+1)*50+20, random(0.5, 1.5), i);
   }
   
+  // Create array list (= array of variable length) of arrows
   arrows = new ArrayList<Arrow>(); 
 }
 
@@ -67,7 +69,9 @@ void draw() {
       
     }
     
+    // Look for key presses
     if(keyPressed) {
+      // Shoot arrow from player 1 if key 'A' is pressed
       if (key == 'a' || key == 'A') {
         knight1.shoot();
       }
@@ -79,13 +83,15 @@ void draw() {
   }
 }
 
-void drawHealthBar (int posx, int posy, float health) { // Draws the health bar
+// Draws the health bar
+void drawHealthBar (int posx, int posy, float health) {
   fill(0,230,0,200);
   noStroke();
   rect(posx, posy, posx+health, posy+10);
 }
 
-void gameOver() { // Called when game is over
+// Called when game is over
+void gameOver() { 
   // Draw background
   image(stronghold_bg, 0, 0);
 

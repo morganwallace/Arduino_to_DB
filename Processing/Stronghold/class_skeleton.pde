@@ -6,13 +6,13 @@ class Skeleton {
   float xpos;
   float ypos;
   float xspeed;
-  float health;         // Current health of the monster
+  float health = 10;         // Current health of the monster
   float healthInit;     // Initial health of the monster
   float footpos = 0;    // Foot position
   int index;            // Index of the monster
   
   
-  Skeleton(float xpos_my, float ypos_my, float xspeed_my, float health_my, int index_my) {
+  Skeleton(float xpos_my, float ypos_my, float xspeed_my, int index_my) {
     // load images for walking character (left, middle and right foot position)
     image_m = loadImage("../../Assets/skeleton_m.png");
     image_l = loadImage("../../Assets/skeleton_l.png");
@@ -26,8 +26,7 @@ class Skeleton {
     xpos = xpos_my;
     ypos = ypos_my;
     xspeed = xspeed_my;
-    health = health_my;
-    healthInit = health_my;
+    healthInit = health;
     index = index_my;
   }
   
